@@ -13,7 +13,7 @@ Create a new nginx.conf within your home directory of the host `/home/[myuser]/n
 
 Docker creates a new entry in `/etc/hosts` for each container so it can be used within your `nginx.conf`
 
-For example use my d3v0x/jenkins image and create a new container called `jenkins`. After this run:
+For example use my [d3v0x/jenkins](https://github.com/d3v0x/docker-jenkins) image and create a new container called `jenkins`. After this run:
 
 `docker run -d --link jenkins:jenkins -p 443:443 -p 80:80 -v /home/[myuser]/nginx.conf:/etc/nginx/nginx.conf --name nginx d3v0x/nginx`
 
@@ -28,7 +28,7 @@ location / {
 
 ## Add certificates to use https://
 
-If you want to use SSL encryption (you should use), you can use my d3v0x/letsencrypt image to create some certificates. You can mount them as another data volume from your host container. Be sure you add the correct path to your `nginx.conf`
+If you want to use SSL encryption (you should use), you can use my [d3v0x/letsencrypt](https://github.com/d3v0x/docker-letsencrypt) image to create some certificates. You can mount them as another data volume from your host container. Be sure you add the correct path to your `nginx.conf`
 
 Example:
 
