@@ -25,3 +25,32 @@ location / {
 	...
 }
 ```
+
+## Add certificates to use https://
+
+If you want to use SSL encryption (you should use), you can use my d3v0x/letsencrypt image to create some certificates. You can mount them as another data volume from your host container. Be sure you add the correct path to your `nginx.conf`
+
+Example:
+
+On your host the certificates are located in 
+
+```
+ssl_certificate /home/[username]/certs/jenkins/live/jenkins.mydomain.ltd/fullchain.pem;
+ssl_certificate_key /home/[username]/certs/jenkins/live/jenkins.mydomain.ltd/privkey.pem;
+
+```
+
+You have to mount the `/home/[username]/certs` directory as another data volume to `/certs` within your nginx container. To do this, execute the nginx container run command with another `-v /home/[username]/certs/:/certs`. So you can access these certificates within your `nginx.conf`:
+
+```
+...
+server {
+	listen 443;
+	server_name jenkins.mydomain.ltd;
+				                
+	ssl on;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_certificate /certs/jenkins/live/jenkins.mydomain.ltd/fullchain.pem;
+	ssl_certificate_key /certs/jenkins/live/jenkins.mydomain.ltd/privkey.pem;
+	...
+```
