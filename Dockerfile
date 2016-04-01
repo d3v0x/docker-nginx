@@ -5,3 +5,5 @@ RUN echo "MAKEOPTS=\"-j$(cat /proc/cpuinfo | grep processor | wc -l)\"" >> /etc/
 
 RUN emerge =www-servers/nginx-1.8.1
 RUN rm -rf /usr/portage
+
+EXPOSE 80 443
