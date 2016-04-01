@@ -1,5 +1,7 @@
 # nginx Docker Image
 
+![Build](https://jenkins.nespithal.com/buildStatus/icon?job=docker-nginx)
+
 ## Set up
 You have to link in your custom nginx.conf from your host system.
 
