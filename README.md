@@ -1,6 +1,6 @@
 # nginx Docker Image
 
-![Build](https://jenkins.nespithal.com/buildStatus/icon?job=docker-nginx)
+![Build](https://jenkins.nespithal.com/buildStatus/icon?job=docker-nginx) [![Gentoo](https://drive.google.com/uc?export=view&id=0BzFoekt1CgCHZDJTTHJXLXhxVW8)](https://gentoo.org)
 
 ## Set up
 You have to link in your custom nginx.conf from your host system.
